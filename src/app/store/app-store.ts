@@ -8,16 +8,17 @@ export class AppStore {
   /**
    * Accessor to current store state
    */
-  getState():any {
+  getState(): any {
     return this.state;
   }
 
   /**
    *  Dispatch the action thru reducers to
-   *  condistionally update the state
+   *  conditionally update the state
    */
   dispatch(action) {
     const newState = this.reducer(this.state, action);
+    console.log(`newState.counter: ${newState.counter}`);
     if (newState !== this.state) {
       this.state = newState;
       this.listeners.forEach(notify => notify());
@@ -34,20 +35,26 @@ export class AppStore {
 
   /**
    * Use the custom actions to update the counter state!
-   *
-   * @TODO - add your custom actions here!
    */
-  protected reducer(state, action){
-    switch(action) {
-      default : return state;
+  protected reducer(state, action) {
+    switch (action) {
+      case VoteActions.YES :
+        return {...state, counter: ++state.counter};
+      case VoteActions.NO :
+        return {...state, counter: --state.counter};
+      default: return state;
     }
   }
 
   protected listeners = [];
   protected state = {
-    counter : 0
+    counter: 0
   };
 
 }
 
+export const VoteActions = {
+  NO: "NO",
+  YES: "YES"
+};
 
