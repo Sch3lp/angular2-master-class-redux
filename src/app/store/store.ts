@@ -9,6 +9,6 @@ export interface Dispatch<S> { <A extends Action>(action: A): A; }
 
 export interface Store<S> {
   getState(): S;
-  dispatch: (action)=>void;
+  dispatch: Dispatch<S>;
   subscribe(listener: () => void): Unsubscribe;
 }
