@@ -1,3 +1,4 @@
+import {VoteActions} from "./votes/vote-actions";
 /**
  * To emulate a Redux store, simply
  * support the dispatch(), subscribe() methods and
@@ -52,9 +53,4 @@ export class AppStore {
   };
 
 }
-
-export const VoteActions = {
-  NO: "NO",
-  YES: "YES"
-};
 
