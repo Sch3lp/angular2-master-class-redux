@@ -1,4 +1,3 @@
-import {VoteActions} from "./votes/vote-actions";
 import {voteReducer} from "./votes/vote-reducer";
 /**
  * To emulate a Redux store, simply
