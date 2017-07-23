@@ -1,4 +1,5 @@
 import {VoteActions} from "./votes/vote-actions";
+import {voteReducer} from "./votes/vote-reducer";
 /**
  * To emulate a Redux store, simply
  * support the dispatch(), subscribe() methods and
@@ -38,13 +39,7 @@ export class AppStore {
    * Use the custom actions to update the counter state!
    */
   protected reducer(state, action) {
-    switch (action) {
-      case VoteActions.YES :
-        return {...state, counter: ++state.counter};
-      case VoteActions.NO :
-        return {...state, counter: --state.counter};
-      default: return state;
-    }
+    return voteReducer(state, action);
   }
 
   protected listeners = [];
