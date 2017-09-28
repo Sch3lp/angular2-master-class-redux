@@ -18,10 +18,6 @@ import {VoteState} from "../store/votes/vote-state";
 export class StatusComponent {
 
   state: VoteState;
-  /**
-   * Inject the appStore here and listen
-   * for vote changes!
-   */
   constructor(@Inject(APP_STORE) private store: Store<ApplicationState>) {
     this.state = store.getState().votes;
 

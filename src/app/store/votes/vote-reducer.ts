@@ -1,14 +1,9 @@
-import {VoteActions} from "./vote-actions";
-import {InitialVoteState} from "./vote-state";
+import { VoteActions, Action } from "./vote-actions";
+import { VoteState, InitialVoteState } from "./vote-state";
 
-export function voteReducer(state = InitialVoteState, action) {
-  console.log(`voteReducer action = ${action}`);
+export function voteReducer(state: VoteState = InitialVoteState, action: Action) {
   switch (action.type) {
-    case VoteActions.YES :
-      return {...state, counter: ++state.counter};
-    case VoteActions.NO :
-      return {...state, counter: --state.counter};
-    default:
-      return state;
+    case VoteActions.VOTES_LOADED: return { ...state, counter: action.counter };
+    default: return state;
   }
 }
