@@ -1,7 +1,6 @@
 import {Component, Inject} from "@angular/core";
 import {APP_STORE} from "../store/app-store";
 import {ApplicationState} from "../store/application-state";
-import {Store} from "../store/store";
 import {VoteState} from "../store/votes/vote-state";
 
 @Component({
@@ -18,7 +17,7 @@ import {VoteState} from "../store/votes/vote-state";
 export class StatusComponent {
 
   state: VoteState;
-  constructor(@Inject(APP_STORE) private store: Store<ApplicationState>) {
+  constructor(@Inject(APP_STORE) private store: any) {
     this.state = store.getState().votes;
 
     store.subscribe(() => {

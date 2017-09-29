@@ -1,6 +1,5 @@
 import {Component, Inject} from "@angular/core";
 import {APP_STORE} from "app/store/app-store";
-import {Store} from "../store/store";
 import {voteYesAction,voteNoAction} from "../store/votes/vote-actions";
 import {ApplicationState} from "../store/application-state";
 import { VoterService } from "app/store/votes/voter.service";
@@ -31,7 +30,7 @@ export class VoterComponent {
   /**
    * Inject the appstore
    */
-  constructor(@Inject(APP_STORE) private store: Store<ApplicationState>, private voterService: VoterService) { }
+  constructor(@Inject(APP_STORE) private store: any, private voterService: VoterService) { }
 
   private increment() {
     this.store.dispatch(voteYesAction(this.voterService));
